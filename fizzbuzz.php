@@ -7,21 +7,12 @@ foreach (range(1, $drive) as $i) {
 }
 
 class Party {
-    private static $events = array();
-
     public function __construct() {
-        $omits = array('Who');
+        $whos = array();
         foreach (get_declared_classes() as $class) {
-            ! in_array($class, $omits)
-                and method_exists($class, 'say')
-                and static::$events[] = $class;
+            is_subclass_of($class, 'Who') and $whos[] = $class;
         }
-    }
-
-    public static function time($new = false) {
-        static $time;
-        $new and $time = $new;
-        return $time;
+        static::whos($whos);
     }
 
     public function next($time) {
@@ -29,16 +20,22 @@ class Party {
         return $this;
     }
 
+    public static function __callStatic($func, $args) {
+        static $properties = array();
+        $args and $properties[$func] = array_shift($args);
+        return isset($properties[$func]) ? $properties[$func] : null;
+    }
+
     public function __toString() {
         $says = array();
-        foreach (static::$events as $event) {
-            $say = $event::say();
+        foreach (static::whos() as $who) {
+            $say = $who::say();
             $say and $says[] = $say;
         }
         $time = (string)static::time();
         return empty($says)
             ? $time
-            : sprintf( '(%d)%s', $time, implode(' ', $says));
+            : sprintf('(%d)%s', $time, implode(' ', $says));
     }
 }
 
@@ -62,4 +59,8 @@ class 河村がお休みをいただきます extends Who {
     public static function say() {
         return (gmp_prob_prime(Party::time())) ? get_called_class() : '';
     }
+}
+
+class 私こと本多が1日最低1回は自分コードをアップするのでレビューお願いします extends Who {
+    protected static $Ihave = 1;
 }

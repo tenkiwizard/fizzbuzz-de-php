@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit colors="true" stopOnFailure="false">
+
+  <testsuites>
+	<testsuite name="fizzbuzz">
+	  <directory suffix=".php">./tests</directory>
+	</testsuite>
+  </testsuites>
+
+  <filter>
+	<whitelist>
+	  <directory suffix=".php">.</directory>
+	  <exclude>
+		<directory suffix=".php">./tests</directory>
+	  </exclude>
+	</whitelist>
+  </filter>
+
+</phpunit>
