@@ -97,7 +97,7 @@
 	<exec executable="phpdoc">
 	  <arg line="
 		-d ${target_dir_name}/
-		-i ${target_dir_name}/tests
+		-i ${target_dir_name}/tests/
 		-t ${phpdoc_dir_name}/
 		"/>
 	</exec>
