@@ -16,6 +16,7 @@ class Party
 		{
 			is_subclass_of($class, 'Who') and $whos[] = $class;
 		}
+
 		static::whos($whos);
 	}
 
@@ -40,6 +41,7 @@ class Party
 			$say = $who::say();
 			$say and $says[] = $say;
 		}
+
 		$time = (string)static::time();
 		return empty($says)
 			? $time
@@ -49,27 +51,27 @@ class Party
 
 abstract class Who
 {
-	protected static $Ihave;
+	protected static $i_have;
 
 	public static function say()
 	{
-		return (Party::time() % static::$Ihave) ? '' : get_called_class();
+		return (Party::time() % static::$i_have) ? '' : get_called_class();
 	}
 }
 
 class Fizz extends Who
 {
-	protected static $Ihave = 3;
-	}
+	protected static $i_have = 3;
+}
 
 class Buzz extends Who
 {
-protected static $Ihave = 5;
+protected static $i_have = 5;
 }
 
 class 前執行役員がシフト勤務をします extends Who
 {
-	protected static $Ihave = 2;
+	protected static $i_have = 2;
 }
 
 class 河村がお休みをいただきます extends Who
@@ -82,5 +84,5 @@ class 河村がお休みをいただきます extends Who
 
 class 私こと本多が1日最低1回は自分コードをアップするのでレビューお願いします extends Who
 {
-	protected static $Ihave = 1;
+	protected static $i_have = 1;
 }
