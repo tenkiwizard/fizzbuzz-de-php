@@ -13,7 +13,7 @@
   <property name="zip_dir_name" value="${phing_dir_name}/zip" />
 
   <!-- Change me. -->
-  <property name="target_dir_name" value="." />
+  <property name="target_dir_name" value="classes" />
   <property name="phpcs_standard" value="FuelPHP" />
   <property name="phpmd_rules" value="codesize,design,naming,unusedcode" />
 

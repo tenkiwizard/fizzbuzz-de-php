@@ -1,11 +1,8 @@
 <?php
-$drive = (isset($argv[1]) and ctype_digit($argv[1])) ? intval($argv[1]) : 100;
 
-$party = new Party();
-foreach (range(1, $drive) as $i)
-{
-	echo $party->next($i).PHP_EOL;
-}
+/**
+ *
+ */
 
 class Party
 {
@@ -42,10 +39,9 @@ class Party
 			$say and $says[] = $say;
 		}
 
-		$time = (string)static::time();
 		return empty($says)
-			? $time
-			: sprintf('(%d)%s', $time, implode(' ', $says));
+			? string(static::time())
+			: sprintf('(%d)%s', static::time(), implode(' ', $says));
 	}
 }
 
@@ -55,7 +51,7 @@ abstract class Who
 
 	public static function say()
 	{
-		return (Party::time() % static::$i_have) ? '' : get_called_class();
+		return (Party::time() % static::$i_have) ? false : get_called_class();
 	}
 }
 
@@ -66,7 +62,7 @@ class Fizz extends Who
 
 class Buzz extends Who
 {
-protected static $i_have = 5;
+	protected static $i_have = 5;
 }
 
 class 前執行役員がシフト勤務をします extends Who
