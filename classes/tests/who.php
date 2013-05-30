@@ -1,7 +1,6 @@
 <?php
 
-require_once dirname(dirname(__FILE__)).'/party.php';
-require_once dirname(dirname(__FILE__)).'/who.php';
+require_once dirname(dirname(__FILE__)).'/fizzbuzz.php';
 
 /**
  * @group FizzBuzz

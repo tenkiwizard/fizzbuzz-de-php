@@ -1,9 +1,5 @@
 <?php
 
-/**
- *
- */
-
 class Party
 {
 	public function __construct()

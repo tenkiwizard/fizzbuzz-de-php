@@ -1,7 +1,6 @@
 <?php
 
-require_once dirname(__DIR__).'/classes/party.php';
-require_once dirname(__DIR__).'/classes/who.php';
+require_once dirname(__DIR__).'/classes/fizzbuzz.php';
 
 $times = (isset($argv[1]) and ctype_digit($argv[1])) ? intval($argv[1]) : 100;
 

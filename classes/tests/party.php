@@ -1,11 +1,6 @@
 <?php
 
-require_once dirname(dirname(__FILE__)).'/party.php';
-require_once dirname(dirname(__FILE__)).'/who.php';
-
-/**
- * @group FizzBuzz
- */
+require_once dirname(dirname(__FILE__)).'/fizzbuzz.php';
 
 class Foo
 {
@@ -22,6 +17,9 @@ class Bingo
 	public function say() { return false; }
 }
 
+/**
+ * @group FizzBuzz
+ */
 class Test_Party extends PHPUnit_Framework_TestCase
 {
 	public function test_next()

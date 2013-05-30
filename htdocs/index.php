@@ -1,7 +1,6 @@
 <?php
 
-require_once dirname(__DIR__).'/classes/party.php';
-require_once dirname(__DIR__).'/classes/who.php';
+require_once dirname(__DIR__).'/classes/fizzbuzz.php';
 
 $times = (isset($_GET['times']) and ctype_digit($_GET['times'])) ? intval($_GET['times']) : 100;
 
