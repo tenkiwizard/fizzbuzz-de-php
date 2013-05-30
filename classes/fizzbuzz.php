@@ -70,7 +70,7 @@ class 河村がお休みをいただきます extends Who
 {
 	public static function say()
 	{
-		return (gmp_prob_prime(Party::time())) ? get_called_class() : '';
+		return (gmp_prob_prime(Party::time())) ? get_called_class() : false;
 	}
 }
 
